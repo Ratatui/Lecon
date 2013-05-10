@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="30727b462c8c4c71948c9b4685470f7a" Name="Diagram1" ZoomLevel="71" DisplayType="true" ShowGrid="false" >
+        <EntityTypeShape EntityType="LeconModel.CPU" Width="1.5" PointX="12.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeconModel.GPU" Width="1.5" PointX="10.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeconModel.Memory" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeconModel.Motherboard" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeconModel.HardDrive" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeconModel.Assembly" Width="1.5" PointX="12.75" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="LeconModel.GPUAssembly" />
+        <AssociationConnector Association="LeconModel.MemoryAssembly" />
+        <AssociationConnector Association="LeconModel.HardDriveAssembly" />
+        <AssociationConnector Association="LeconModel.CPUAssembly" />
+        <EntityTypeShape EntityType="LeconModel.Cooler" Width="1.5" PointX="10" PointY="20.625" IsExpanded="true" />
+        <AssociationConnector Association="LeconModel.CoolerAssembly" ></AssociationConnector>
+        <EntityTypeShape EntityType="LeconModel.PSU" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
+        <AssociationConnector Association="LeconModel.PSUAssembly" />
+        <EntityTypeShape EntityType="LeconModel.Body" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <AssociationConnector Association="LeconModel.BodyAssembly" />
+        <EntityTypeShape EntityType="LeconModel.Device" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeconModel.Manufacturer" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <AssociationConnector Association="LeconModel.ManufacturerDevice" />
+        <AssociationConnector Association="LeconModel.DeviceMotherboard" />
+        <AssociationConnector Association="LeconModel.DeviceHardDrive" />
+        <AssociationConnector Association="LeconModel.DevicePSU" />
+        <AssociationConnector Association="LeconModel.DeviceCooler" />
+        <AssociationConnector Association="LeconModel.DeviceBody" />
+        <AssociationConnector Association="LeconModel.DeviceMemory" />
+        <AssociationConnector Association="LeconModel.DeviceGPU" />
+        <AssociationConnector Association="LeconModel.DeviceCPU" />
+        <EntityTypeShape EntityType="LeconModel.Socket" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="LeconModel.SocketCPU" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="LeconModel.GPUCPU" />
+        <EntityTypeShape EntityType="LeconModel.MemoryType" Width="1.5" PointX="6" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeconModel.PowerType" Width="1.5" PointX="9.5" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeconModel.DeviceType" Width="1.5" PointX="13.5" PointY="24.75" IsExpanded="true" />
+        <AssociationConnector Association="LeconModel.SocketMotherboard" />
+        <EntityTypeShape EntityType="LeconModel.FormFactor" Width="1.5" PointX="11.375" PointY="27.625" IsExpanded="true" />
+        <AssociationConnector Association="LeconModel.FormFactorMotherboard" />
+        <AssociationConnector Association="LeconModel.FormFactorBody" />
+        <AssociationConnector Association="LeconModel.FormFactorPSU" />
+        <AssociationConnector Association="LeconModel.GPUMotherboard" />
+        <EntityTypeShape EntityType="LeconModel.Chipset" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="LeconModel.ChipsetMotherboard" />
+        <AssociationConnector Association="LeconModel.CoolerBody" />
+        <EntityTypeShape EntityType="LeconModel.GraphicChip" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="LeconModel.GraphicChipGPU" ></AssociationConnector>
+        <AssociationConnector Association="LeconModel.PowerTypeCooler" />
+        <AssociationConnector Association="LeconModel.CoolerGPU" />
+        <AssociationConnector Association="LeconModel.DeviceTypeCooler" />
+        <AssociationConnector Association="LeconModel.MemoryTypeMotherboard" />
+        <AssociationConnector Association="LeconModel.MemoryTypeMemory" />
+        <AssociationConnector Association="LeconModel.PowerTypeHardDrive" />
+        <AssociationConnector Association="LeconModel.PowerTypePSU" />
+        <AssociationConnector Association="LeconModel.PowerTypeMotherboard" />
+        <AssociationConnector Association="LeconModel.MotherboardAssembly" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

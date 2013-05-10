@@ -1,0 +1,69 @@
+﻿<navigation:Page x:Class="Lecon.Views.SmallDataPage"
+				 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				 mc:Ignorable="d"
+				 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+				 d:DesignWidth="640"
+				 d:DesignHeight="480"
+				 Title="Small Data">
+	<ScrollViewer  ScrollViewer.VerticalScrollBarVisibility="Auto"
+				   ScrollViewer.HorizontalScrollBarVisibility="Auto">
+		<Grid x:Name="LayoutRoot">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"
+							   MinHeight="150"
+							   MaxHeight="300" />
+				<RowDefinition Height="*"
+							   MinHeight="150"
+							   MaxHeight="300" />
+				<RowDefinition Height="*"
+							   MinHeight="150"
+							   MaxHeight="300" />
+				<RowDefinition Height="*"
+							   MinHeight="150"
+							   MaxHeight="300" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"
+								  MinWidth="200" />
+				<ColumnDefinition Width="*"
+								  MinWidth="200" />
+			</Grid.ColumnDefinitions>
+
+			<navigation:Frame Grid.Row="0"
+							  Grid.Column="0"
+							  BorderThickness="1"
+							  Source="/Views/SmallData/ChipsetPage.xaml" />
+			<navigation:Frame Grid.Row="1"
+							  Grid.Column="0"
+							  BorderThickness="1"
+							  Source="/Views/SmallData/DeviceTypePage.xaml" />
+			<navigation:Frame Grid.Row="2"
+							  Grid.Column="0"
+							  BorderThickness="1"
+							  Source="/Views/SmallData/FormFactorPage.xaml" />
+			<navigation:Frame Grid.Row="3"
+							  Grid.Column="0"
+							  BorderThickness="1"
+							  Source="/Views/SmallData/GraphicChipPage.xaml" />
+			<navigation:Frame Grid.Row="0"
+							  Grid.Column="1"
+							  BorderThickness="1"
+							  Source="/Views/SmallData/ManufacturerPage.xaml" />
+			<navigation:Frame Grid.Row="1"
+							  Grid.Column="1"
+							  BorderThickness="1"
+							  Source="/Views/SmallData/MemoryTypePage.xaml" />
+			<navigation:Frame Grid.Row="2"
+							  Grid.Column="1"
+							  BorderThickness="1"
+							  Source="/Views/SmallData/PowerTypePage.xaml" />
+			<navigation:Frame Grid.Row="3"
+							  Grid.Column="1"
+							  BorderThickness="1"
+							  Source="/Views/SmallData/SocketPage.xaml" />
+		</Grid>
+	</ScrollViewer>
+</navigation:Page>

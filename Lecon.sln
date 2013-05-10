@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecon", "Lecon\Lecon.csproj", "{7DD08697-F629-4F61-99D7-51F5765E4E2B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1C92B05D-9B4A-40DF-B057-DDCCB1AF3123} = {1C92B05D-9B4A-40DF-B057-DDCCB1AF3123}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecon.Web", "Lecon.Web\Lecon.Web.csproj", "{1C92B05D-9B4A-40DF-B057-DDCCB1AF3123}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{444C1DE4-D581-4553-8520-15000AB9976F}"
+	ProjectSection(SolutionItems) = preProject
+		Lecon.bak = Lecon.bak
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DD08697-F629-4F61-99D7-51F5765E4E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD08697-F629-4F61-99D7-51F5765E4E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD08697-F629-4F61-99D7-51F5765E4E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD08697-F629-4F61-99D7-51F5765E4E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C92B05D-9B4A-40DF-B057-DDCCB1AF3123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C92B05D-9B4A-40DF-B057-DDCCB1AF3123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C92B05D-9B4A-40DF-B057-DDCCB1AF3123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C92B05D-9B4A-40DF-B057-DDCCB1AF3123}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
