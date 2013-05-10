@@ -104,7 +104,8 @@
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\LoginInfo.cs" />
-    <Compile Include="Models\UICommand.cs" />
+    <Compile Include="ViewModels\CPU_ViewModel.cs" />
+    <Compile Include="ViewModels\UICommand.cs" />
     <Compile Include="Models\User.partial.cs" />
     <Compile Include="Models\RegistrationData.partial.cs" />
     <Compile Include="Controls\BusyIndicator.cs" />
@@ -118,9 +119,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SecurityQuestions.resx</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\AddOneStringDialog.xaml.cs">
       <DependentUpon>AddOneStringDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BigData\CPUPage.xaml.cs">
+      <DependentUpon>CPUPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SmallDataPage.xaml.cs">
       <DependentUpon>SmallDataPage.xaml</DependentUpon>
@@ -193,6 +197,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AddOneStringDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BigData\CPUPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -309,6 +317,13 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\BigData\Images\delete.png" />
+    <Resource Include="Views\BigData\Images\filter.png" />
+    <Resource Include="Views\BigData\Images\new.png" />
+    <Resource Include="Views\BigData\Images\refresh.png" />
+    <Resource Include="Views\BigData\Images\save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

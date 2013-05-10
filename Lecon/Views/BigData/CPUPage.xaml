@@ -1,0 +1,149 @@
+﻿<navigation:Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+				 xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices"
+				 xmlns:viewModels="clr-namespace:Lecon.ViewModels"
+				 xmlns:Web="clr-namespace:Lecon.Web"
+				 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 x:Class="Lecon.Views.BigData.CPUPage"
+				 mc:Ignorable="d"
+				 d:DesignWidth="640"
+				 d:DesignHeight="480"
+				 Title="CPUs">
+	<navigation:Page.Resources>
+		<viewModels:CPU_ViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<sdk:DataGrid x:Name="DataGrid"
+					  Grid.Row="0"
+					  ItemsSource="{Binding Context.CPUs, Source={StaticResource ViewModel}}"
+					  AutoGenerateColumns="False">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTextColumn Header="Name"
+										Binding="{Binding Name}" />
+				<sdk:DataGridTextColumn Header="Manufacturer"
+										Binding="{Binding Device.Manufacturer.Name}" />
+				<sdk:DataGridTextColumn Header="Price"
+										Binding="{Binding Device.Price}" />
+				<sdk:DataGridTextColumn Header="Frequence"
+										Binding="{Binding Frequence}" />
+				<sdk:DataGridTextColumn Header="Cores"
+										Binding="{Binding Cores}" />
+				<sdk:DataGridTextColumn Header="Socket"
+										Binding="{Binding Socket.Name}" />
+				<sdk:DataGridTextColumn Header="GPU"
+										Binding="{Binding GPU.Name}" />
+			</sdk:DataGrid.Columns>
+		</sdk:DataGrid>
+		<StackPanel Grid.Row="1"
+					Orientation="Horizontal"
+					Height="32">
+			<Button Command="{Binding AddCommand}"
+					Margin="3 3 3 3">
+				<Image Source="Images/new.png" />
+			</Button>
+			<Button Command="{Binding RefreshCommand}"
+					Margin="3 3 3 3">
+				<Image Source="Images/refresh.png" />
+			</Button>
+			<Button Command="{Binding SubmitCommand}"
+					Margin="3 3 3 3">
+				<Image Source="Images/save.png" />
+			</Button>
+			<Button Command="{Binding DeleteCommand}"
+					Margin="3 3 3 3">
+				<Image Source="Images/delete.png" />
+			</Button>
+		</StackPanel>
+		<StackPanel Grid.Row="2"
+					DataContext="{StaticResource ViewModel}">
+			<StackPanel Orientation="Horizontal"
+						Margin="3 3 3 3">
+				<sdk:Label Content="Name"
+						   Width="80" />
+				<TextBox Text="{Binding Name}"
+						 Width="150" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="3 3 3 3">
+				<sdk:Label Content="Manufacturer"
+						   Width="80" />
+				<ComboBox ItemsSource="{Binding Context.Manufacturers}"
+						  SelectedValue="{Binding Device.Manufacturer}"
+						  DisplayMemberPath="Name"
+						  Width="150" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="3 3 3 3">
+				<sdk:Label Content="Price"
+						   Width="80" />
+				<TextBox Text="{Binding Device.Price}"
+						 Width="150" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="3 3 3 3">
+				<StackPanel Orientation="Horizontal">
+					<sdk:Label Content="Frequence"
+							   Width="80" />
+					<TextBox Text="{Binding Frequence}"
+							 Width="150" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal"
+							Margin="3 0 0 0">
+					<sdk:Label Content="Cores"
+							   Width="80" />
+					<TextBox Text="{Binding Cores}"
+							 Width="150" />
+				</StackPanel>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="3 3 3 3">
+				<StackPanel Orientation="Horizontal">
+					<sdk:Label Content="Cache one"
+							   Width="80" />
+					<TextBox Text="{Binding CacheOne}"
+							 Width="150" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal"
+							Margin="3 0 0 0">
+					<sdk:Label Content="Cache two"
+							   Width="80" />
+					<TextBox Text="{Binding CacheTwo}"
+							 Width="150" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal"
+							Margin="3 0 0 0">
+					<sdk:Label Content="Cache three"
+							   Width="80" />
+					<TextBox Text="{Binding CacheThree}"
+							 Width="150" />
+				</StackPanel>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="3 3 3 3">
+				<sdk:Label Content="Socket"
+						   Width="80" />
+				<ComboBox ItemsSource="{Binding Context.Sockets}"
+						  SelectedValue="{Binding Socket}"
+						  DisplayMemberPath="Name"
+						  Width="150" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="3 3 3 3">
+				<sdk:Label Content="GPU"
+						   Width="80" />
+				<ComboBox ItemsSource="{Binding Context.GPUs}"
+						  SelectedValue="{Binding GPU}"
+						  DisplayMemberPath="Name"
+						  Width="150" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</navigation:Page>
