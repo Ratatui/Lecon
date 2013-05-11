@@ -66,7 +66,7 @@ namespace Lecon.Web
 		// To support paging you will need to add ordering to the 'Bodys' query.
 		public IQueryable<Body> GetBodys()
 		{
-			return this.ObjectContext.Bodys;
+			return this.ObjectContext.Bodys.Include("Device");
 		}
 
 		public void InsertBody(Body body)
@@ -144,7 +144,7 @@ namespace Lecon.Web
 		// To support paging you will need to add ordering to the 'Coolers' query.
 		public IQueryable<Cooler> GetCoolers()
 		{
-			return this.ObjectContext.Coolers;
+			return this.ObjectContext.Coolers.Include("Device");
 		}
 
 		public void InsertCooler(Cooler cooler)
@@ -183,7 +183,7 @@ namespace Lecon.Web
 		// To support paging you will need to add ordering to the 'CPUs' query.
 		public IQueryable<CPU> GetCPUs()
 		{
-			return this.ObjectContext.CPUs;
+			return this.ObjectContext.CPUs.Include("Device");
 		}
 
 		public void InsertCPU(CPU cPU)
@@ -339,7 +339,7 @@ namespace Lecon.Web
 		// To support paging you will need to add ordering to the 'GPUs' query.
 		public IQueryable<GPU> GetGPUs()
 		{
-			return this.ObjectContext.GPUs;
+			return this.ObjectContext.GPUs.Include("Device");
 		}
 
 		public void InsertGPU(GPU gPU)
@@ -417,7 +417,7 @@ namespace Lecon.Web
 		// To support paging you will need to add ordering to the 'HardDrives' query.
 		public IQueryable<HardDrive> GetHardDrives()
 		{
-			return this.ObjectContext.HardDrives;
+			return this.ObjectContext.HardDrives.Include("Device");
 		}
 
 		public void InsertHardDrive(HardDrive hardDrive)
@@ -495,7 +495,7 @@ namespace Lecon.Web
 		// To support paging you will need to add ordering to the 'Memorys' query.
 		public IQueryable<Memory> GetMemorys()
 		{
-			return this.ObjectContext.Memorys;
+			return this.ObjectContext.Memorys.Include("Device");
 		}
 
 		public void InsertMemory(Memory memory)
@@ -573,7 +573,7 @@ namespace Lecon.Web
 		// To support paging you will need to add ordering to the 'Motherboards' query.
 		public IQueryable<Motherboard> GetMotherboards()
 		{
-			return this.ObjectContext.Motherboards;
+			return this.ObjectContext.Motherboards.Include("Device");
 		}
 
 		public void InsertMotherboard(Motherboard motherboard)
@@ -651,7 +651,7 @@ namespace Lecon.Web
 		// To support paging you will need to add ordering to the 'PSUs' query.
 		public IQueryable<PSU> GetPSUs()
 		{
-			return this.ObjectContext.PSUs;
+			return this.ObjectContext.PSUs.Include("Device");
 		}
 
 		public void InsertPSU(PSU pSU)

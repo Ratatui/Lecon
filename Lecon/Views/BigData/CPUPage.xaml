@@ -23,17 +23,18 @@
 		</Grid.RowDefinitions>
 		<sdk:DataGrid x:Name="DataGrid"
 					  Grid.Row="0"
-					  ItemsSource="{Binding Context.CPUs, Source={StaticResource ViewModel}}"
-					  AutoGenerateColumns="False">
+					  ItemsSource="{Binding CPUsView, Source={StaticResource ViewModel}}"
+					  AutoGenerateColumns="False"
+					  >
 			<sdk:DataGrid.Columns>
-				<sdk:DataGridTextColumn Header="Name"
-										Binding="{Binding Name}" />
+				<sdk:DataGridTextColumn Header="Model"
+										Binding="{Binding Device.Model}" />
 				<sdk:DataGridTextColumn Header="Manufacturer"
 										Binding="{Binding Device.Manufacturer.Name}" />
 				<sdk:DataGridTextColumn Header="Price"
 										Binding="{Binding Device.Price}" />
-				<sdk:DataGridTextColumn Header="Frequence"
-										Binding="{Binding Frequence}" />
+				<sdk:DataGridTextColumn Header="Frequency"
+										Binding="{Binding Frequency}" />
 				<sdk:DataGridTextColumn Header="Cores"
 										Binding="{Binding Cores}" />
 				<sdk:DataGridTextColumn Header="Socket"
@@ -44,7 +45,8 @@
 		</sdk:DataGrid>
 		<StackPanel Grid.Row="1"
 					Orientation="Horizontal"
-					Height="32">
+					Height="32"
+					DataContext="{StaticResource ViewModel}">
 			<Button Command="{Binding AddCommand}"
 					Margin="3 3 3 3">
 				<Image Source="Images/new.png" />
@@ -63,43 +65,45 @@
 			</Button>
 		</StackPanel>
 		<StackPanel Grid.Row="2"
-					DataContext="{StaticResource ViewModel}">
+					DataContext="{Binding CPUsView, Source={StaticResource ViewModel}}">
 			<StackPanel Orientation="Horizontal"
 						Margin="3 3 3 3">
-				<sdk:Label Content="Name"
+				<sdk:Label Content="Model"
 						   Width="80" />
-				<TextBox Text="{Binding Name}"
+				<TextBox Text="{Binding Device.Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						 Width="150" />
 			</StackPanel>
 			<StackPanel Orientation="Horizontal"
 						Margin="3 3 3 3">
-				<sdk:Label Content="Manufacturer"
-						   Width="80" />
-				<ComboBox ItemsSource="{Binding Context.Manufacturers}"
-						  SelectedValue="{Binding Device.Manufacturer}"
-						  DisplayMemberPath="Name"
-						  Width="150" />
-			</StackPanel>
-			<StackPanel Orientation="Horizontal"
-						Margin="3 3 3 3">
-				<sdk:Label Content="Price"
-						   Width="80" />
-				<TextBox Text="{Binding Device.Price}"
-						 Width="150" />
+				<StackPanel Orientation="Horizontal">
+					<sdk:Label Content="Manufacturer"
+							   Width="80" />
+					<ComboBox ItemsSource="{Binding ManufacturersView, Source={StaticResource ViewModel}}"
+							  SelectedValue="{Binding Device.Manufacturer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+							  DisplayMemberPath="Name"
+							  Width="150" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal"
+							Margin="3 0 0 0">
+					<sdk:Label Content="Price"
+							   Width="80" />
+					<TextBox Text="{Binding Device.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+							 Width="150" />
+				</StackPanel>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal"
 						Margin="3 3 3 3">
 				<StackPanel Orientation="Horizontal">
 					<sdk:Label Content="Frequence"
 							   Width="80" />
-					<TextBox Text="{Binding Frequence}"
+					<TextBox Text="{Binding Frequency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 							 Width="150" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal"
 							Margin="3 0 0 0">
 					<sdk:Label Content="Cores"
 							   Width="80" />
-					<TextBox Text="{Binding Cores}"
+					<TextBox Text="{Binding Cores, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 							 Width="150" />
 				</StackPanel>
 			</StackPanel>
@@ -108,21 +112,21 @@
 				<StackPanel Orientation="Horizontal">
 					<sdk:Label Content="Cache one"
 							   Width="80" />
-					<TextBox Text="{Binding CacheOne}"
+					<TextBox Text="{Binding СacheOne, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 							 Width="150" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal"
 							Margin="3 0 0 0">
 					<sdk:Label Content="Cache two"
 							   Width="80" />
-					<TextBox Text="{Binding CacheTwo}"
+					<TextBox Text="{Binding СacheTwo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 							 Width="150" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal"
 							Margin="3 0 0 0">
 					<sdk:Label Content="Cache three"
 							   Width="80" />
-					<TextBox Text="{Binding CacheThree}"
+					<TextBox Text="{Binding СacheThree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 							 Width="150" />
 				</StackPanel>
 			</StackPanel>
@@ -130,8 +134,8 @@
 						Margin="3 3 3 3">
 				<sdk:Label Content="Socket"
 						   Width="80" />
-				<ComboBox ItemsSource="{Binding Context.Sockets}"
-						  SelectedValue="{Binding Socket}"
+				<ComboBox ItemsSource="{Binding SocketsView, Source={StaticResource ViewModel}}"
+						  SelectedValue="{Binding Socket, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						  DisplayMemberPath="Name"
 						  Width="150" />
 			</StackPanel>
@@ -139,8 +143,8 @@
 						Margin="3 3 3 3">
 				<sdk:Label Content="GPU"
 						   Width="80" />
-				<ComboBox ItemsSource="{Binding Context.GPUs}"
-						  SelectedValue="{Binding GPU}"
+				<ComboBox ItemsSource="{Binding GPUsView, Source={StaticResource ViewModel}}"
+						  SelectedValue="{Binding GPU, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						  DisplayMemberPath="Name"
 						  Width="150" />
 			</StackPanel>

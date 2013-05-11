@@ -1,9 +1,11 @@
 ﻿using Lecon.Web;
 using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Ink;
 using System.Windows.Input;
@@ -30,6 +32,10 @@ namespace Lecon.ViewModels
 
 			this.SubmitCommand = new UICommand(OnSubmitCommand);
 			this.RejectCommand = new UICommand(OnRejectCommand);
+
+			this.AddCommand = new UICommand(OnAddCommand);
+			this.DeleteCommand = new UICommand(OnDeleteCommand);
+			this.RefreshCommand = new UICommand(OnRefreshCommand);
 		}
 
 		public void OnSubmitCommand()
@@ -44,6 +50,12 @@ namespace Lecon.ViewModels
 		public abstract void OnAddCommand();
 		public abstract void OnDeleteCommand();
 		public abstract void OnRefreshCommand();
+
+		protected ICollectionView CreateView(IEnumerable source)
+		{
+			var cvs = new CollectionViewSource { Source = source };
+			return cvs.View;
+		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

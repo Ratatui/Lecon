@@ -99,6 +99,7 @@ namespace Lecon.Web
 
 			public Nullable<int> CoolerId { get; set; }
 
+			[Include]
 			public Device Device { get; set; }
 
 			public int DeviceId { get; set; }
@@ -169,6 +170,7 @@ namespace Lecon.Web
 
 			public EntityCollection<Body> Bodys { get; set; }
 
+			[Include]
 			public Device Device { get; set; }
 
 			public int DeviceId { get; set; }
@@ -218,6 +220,7 @@ namespace Lecon.Web
 
 			public short Cores { get; set; }
 
+			[Include]
 			public Device Device { get; set; }
 
 			public int DeviceId { get; set; }
@@ -392,6 +395,7 @@ namespace Lecon.Web
 
 			public EntityCollection<CPU> CPUs { get; set; }
 
+			[Include]
 			public Device Device { get; set; }
 
 			public int DeviceId { get; set; }
@@ -472,6 +476,7 @@ namespace Lecon.Web
 
 			public short Cache { get; set; }
 
+			[Include]
 			public Device Device { get; set; }
 
 			public int DeviceId { get; set; }
@@ -544,6 +549,7 @@ namespace Lecon.Web
 
 			public EntityCollection<Assembly> Assemblys { get; set; }
 
+			[Include]
 			public Device Device { get; set; }
 
 			public int DeviceId { get; set; }
@@ -622,6 +628,7 @@ namespace Lecon.Web
 
 			public int ChipsetId { get; set; }
 
+			[Include]
 			public Device Device { get; set; }
 
 			public int DeviceId { get; set; }
@@ -716,6 +723,7 @@ namespace Lecon.Web
 
 			public EntityCollection<Assembly> Assemblys { get; set; }
 
+			[Include]
 			public Device Device { get; set; }
 
 			public int DeviceId { get; set; }

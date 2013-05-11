@@ -10,14 +10,20 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using Lecon.ViewModels;
 
 namespace Lecon.Views.BigData
 {
 	public partial class CPUPage : Page
 	{
+		public CPU_ViewModel ViewModel { get; set; }
+
 		public CPUPage()
 		{
 			InitializeComponent();
+
+			this.ViewModel = this.Resources["ViewModel"] as CPU_ViewModel;
+
 		}
 
 		// Executes when the user navigates to this page.
