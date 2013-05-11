@@ -1491,10 +1491,6 @@ namespace Lecon.Web
         
         private int _id;
         
-        private EntityRef<PowerType> _powerType;
-        
-        private int _powerTypeId;
-        
         private short _rotation;
         
         private short _size;
@@ -1512,8 +1508,6 @@ namespace Lecon.Web
         partial void OnDeviceTypeIdChanged();
         partial void OnIdChanging(int value);
         partial void OnIdChanged();
-        partial void OnPowerTypeIdChanging(int value);
-        partial void OnPowerTypeIdChanged();
         partial void OnRotationChanging(short value);
         partial void OnRotationChanged();
         partial void OnSizeChanging(short value);
@@ -1747,75 +1741,6 @@ namespace Lecon.Web
         }
         
         /// <summary>
-        /// Gets or sets the associated <see cref="PowerType"/> entity.
-        /// </summary>
-        [Association("PowerType_Cooler", "PowerTypeId", "Id", IsForeignKey=true)]
-        [XmlIgnore()]
-        public PowerType PowerType
-        {
-            get
-            {
-                if ((this._powerType == null))
-                {
-                    this._powerType = new EntityRef<PowerType>(this, "PowerType", this.FilterPowerType);
-                }
-                return this._powerType.Entity;
-            }
-            set
-            {
-                PowerType previous = this.PowerType;
-                if ((previous != value))
-                {
-                    this.ValidateProperty("PowerType", value);
-                    if ((previous != null))
-                    {
-                        this._powerType.Entity = null;
-                        previous.Coolers.Remove(this);
-                    }
-                    if ((value != null))
-                    {
-                        this.PowerTypeId = value.Id;
-                    }
-                    else
-                    {
-                        this.PowerTypeId = default(int);
-                    }
-                    this._powerType.Entity = value;
-                    if ((value != null))
-                    {
-                        value.Coolers.Add(this);
-                    }
-                    this.RaisePropertyChanged("PowerType");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Gets or sets the 'PowerTypeId' value.
-        /// </summary>
-        [DataMember()]
-        [RoundtripOriginal()]
-        public int PowerTypeId
-        {
-            get
-            {
-                return this._powerTypeId;
-            }
-            set
-            {
-                if ((this._powerTypeId != value))
-                {
-                    this.OnPowerTypeIdChanging(value);
-                    this.RaiseDataMemberChanging("PowerTypeId");
-                    this.ValidateProperty("PowerTypeId", value);
-                    this._powerTypeId = value;
-                    this.RaiseDataMemberChanged("PowerTypeId");
-                    this.OnPowerTypeIdChanged();
-                }
-            }
-        }
-        
-        /// <summary>
         /// Gets or sets the 'Rotation' value.
         /// </summary>
         [DataMember()]
@@ -1916,11 +1841,6 @@ namespace Lecon.Web
         private bool FilterGPUs(GPU entity)
         {
             return (entity.CoolerId == this.Id);
-        }
-        
-        private bool FilterPowerType(PowerType entity)
-        {
-            return (entity.Id == this.PowerTypeId);
         }
         
         /// <summary>
@@ -4547,6 +4467,19 @@ namespace Lecon.Web
         }
         
         /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="Cooler"/> entity instances using the 'GetCoolersForDeviceTypeName' query.
+        /// </summary>
+        /// <param name="Name">The value for the 'Name' parameter of the query.</param>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Cooler"/> entity instances.</returns>
+        public EntityQuery<Cooler> GetCoolersForDeviceTypeNameQuery(string Name)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("Name", Name);
+            this.ValidateMethod("GetCoolersForDeviceTypeNameQuery", parameters);
+            return base.CreateQuery<Cooler>("GetCoolersForDeviceTypeName", parameters, false, true);
+        }
+        
+        /// <summary>
         /// Gets an EntityQuery instance that can be used to load <see cref="CPU"/> entity instances using the 'GetCPUs' query.
         /// </summary>
         /// <returns>An EntityQuery that can be loaded to retrieve <see cref="CPU"/> entity instances.</returns>
@@ -4773,6 +4706,26 @@ namespace Lecon.Web
             /// <param name="result">The IAsyncResult returned from 'BeginGetCoolers'.</param>
             /// <returns>The 'QueryResult' returned from the 'GetCoolers' operation.</returns>
             QueryResult<Cooler> EndGetCoolers(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetCoolersForDeviceTypeName' operation.
+            /// </summary>
+            /// <param name="Name">The value for the 'Name' parameter of this action.</param>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/LeconDomainService/GetCoolersForDeviceTypeNameDomainServiceFau" +
+                "lt", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/LeconDomainService/GetCoolersForDeviceTypeName", ReplyAction="http://tempuri.org/LeconDomainService/GetCoolersForDeviceTypeNameResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetCoolersForDeviceTypeName(string Name, AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetCoolersForDeviceTypeName'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetCoolersForDeviceTypeName'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetCoolersForDeviceTypeName' operation.</returns>
+            QueryResult<Cooler> EndGetCoolersForDeviceTypeName(IAsyncResult result);
             
             /// <summary>
             /// Asynchronously invokes the 'GetCPUs' operation.
@@ -6407,8 +6360,6 @@ namespace Lecon.Web
     public sealed partial class PowerType : Entity
     {
         
-        private EntityCollection<Cooler> _coolers;
-        
         private EntityCollection<HardDrive> _hardDrives;
         
         private int _id;
@@ -6440,23 +6391,6 @@ namespace Lecon.Web
         public PowerType()
         {
             this.OnCreated();
-        }
-        
-        /// <summary>
-        /// Gets the collection of associated <see cref="Cooler"/> entity instances.
-        /// </summary>
-        [Association("PowerType_Cooler", "Id", "PowerTypeId")]
-        [XmlIgnore()]
-        public EntityCollection<Cooler> Coolers
-        {
-            get
-            {
-                if ((this._coolers == null))
-                {
-                    this._coolers = new EntityCollection<Cooler>(this, "Coolers", this.FilterCoolers, this.AttachCoolers, this.DetachCoolers);
-                }
-                return this._coolers;
-            }
         }
         
         /// <summary>
@@ -6560,21 +6494,6 @@ namespace Lecon.Web
                 }
                 return this._psUs;
             }
-        }
-        
-        private void AttachCoolers(Cooler entity)
-        {
-            entity.PowerType = this;
-        }
-        
-        private void DetachCoolers(Cooler entity)
-        {
-            entity.PowerType = null;
-        }
-        
-        private bool FilterCoolers(Cooler entity)
-        {
-            return (entity.PowerTypeId == this.Id);
         }
         
         private void AttachHardDrives(HardDrive entity)

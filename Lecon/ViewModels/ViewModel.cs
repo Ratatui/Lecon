@@ -47,9 +47,9 @@ namespace Lecon.ViewModels
 			this.Context.RejectChanges();
 		}
 
-		public abstract void OnAddCommand();
-		public abstract void OnDeleteCommand();
-		public abstract void OnRefreshCommand();
+		protected abstract void OnAddCommand();
+		protected abstract void OnDeleteCommand();
+		protected abstract void OnRefreshCommand();
 
 		protected ICollectionView CreateView(IEnumerable source)
 		{

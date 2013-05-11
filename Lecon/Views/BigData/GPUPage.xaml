@@ -7,13 +7,13 @@
 				 xmlns:viewModels="clr-namespace:Lecon.ViewModels"
 				 xmlns:Web="clr-namespace:Lecon.Web"
 				 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
-				 x:Class="Lecon.Views.CPUPage"
+				 x:Class="Lecon.Views.GPUPage"
 				 mc:Ignorable="d"
 				 d:DesignWidth="640"
 				 d:DesignHeight="480"
 				 Title="CPUs">
 	<navigation:Page.Resources>
-		<viewModels:CPU_ViewModel x:Key="ViewModel" />
+		<viewModels:GPU_ViewModel x:Key="ViewModel" />
 	</navigation:Page.Resources>
 	<Grid x:Name="LayoutRoot">
 		<Grid.RowDefinitions>
@@ -23,9 +23,8 @@
 		</Grid.RowDefinitions>
 		<sdk:DataGrid x:Name="DataGrid"
 					  Grid.Row="0"
-					  ItemsSource="{Binding CPUsView, Source={StaticResource ViewModel}}"
-					  AutoGenerateColumns="False"
-					  >
+					  ItemsSource="{Binding GPUsView, Source={StaticResource ViewModel}}"
+					  AutoGenerateColumns="False">
 			<sdk:DataGrid.Columns>
 				<sdk:DataGridTextColumn Header="Model"
 										Binding="{Binding Device.Model}" />
@@ -34,13 +33,13 @@
 				<sdk:DataGridTextColumn Header="Price"
 										Binding="{Binding Device.Price}" />
 				<sdk:DataGridTextColumn Header="Frequency"
-										Binding="{Binding Frequency}" />
-				<sdk:DataGridTextColumn Header="Cores"
-										Binding="{Binding Cores}" />
+										Binding="{Binding GraphicChip.Frequency}" />
+				<sdk:DataGridTextColumn Header="Capacity"
+										Binding="{Binding GraphicChip.Сapacity}" />
 				<sdk:DataGridTextColumn Header="Socket"
-										Binding="{Binding Socket.Name}" />
-				<sdk:DataGridTextColumn Header="GPU"
-										Binding="{Binding GPU.Name}" />
+										Binding="{Binding GraphicChip.Name}" />
+				<sdk:DataGridCheckBoxColumn Header="Additional Power"
+											Binding="{Binding AdditionalPower}" />
 			</sdk:DataGrid.Columns>
 		</sdk:DataGrid>
 		<StackPanel Grid.Row="1"
@@ -65,7 +64,7 @@
 			</Button>
 		</StackPanel>
 		<StackPanel Grid.Row="2"
-					DataContext="{Binding CPUsView, Source={StaticResource ViewModel}}">
+					DataContext="{Binding GPUsView, Source={StaticResource ViewModel}}">
 			<StackPanel Orientation="Horizontal"
 						Margin="3 3 3 3">
 				<sdk:Label Content="Model"
@@ -94,58 +93,42 @@
 			<StackPanel Orientation="Horizontal"
 						Margin="3 3 3 3">
 				<StackPanel Orientation="Horizontal">
-					<sdk:Label Content="Frequence"
+					<sdk:Label Content="Size"
 							   Width="80" />
-					<TextBox Text="{Binding Frequency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					<TextBox Text="{Binding Size, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 							 Width="150" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal"
 							Margin="3 0 0 0">
-					<sdk:Label Content="Cores"
+					<sdk:Label Content="Add Power"
 							   Width="80" />
-					<TextBox Text="{Binding Cores, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-							 Width="150" />
+					<CheckBox IsChecked="{Binding AdditionalPower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal"
 						Margin="3 3 3 3">
-				<StackPanel Orientation="Horizontal">
-					<sdk:Label Content="Cache one"
-							   Width="80" />
-					<TextBox Text="{Binding СacheOne, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-							 Width="150" />
-				</StackPanel>
-				<StackPanel Orientation="Horizontal"
-							Margin="3 0 0 0">
-					<sdk:Label Content="Cache two"
-							   Width="80" />
-					<TextBox Text="{Binding СacheTwo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-							 Width="150" />
-				</StackPanel>
-				<StackPanel Orientation="Horizontal"
-							Margin="3 0 0 0">
-					<sdk:Label Content="Cache three"
-							   Width="80" />
-					<TextBox Text="{Binding СacheThree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-							 Width="150" />
-				</StackPanel>
-			</StackPanel>
-			<StackPanel Orientation="Horizontal"
-						Margin="3 3 3 3">
-				<sdk:Label Content="Socket"
+				<sdk:Label Content="Power"
 						   Width="80" />
-				<ComboBox ItemsSource="{Binding SocketsView, Source={StaticResource ViewModel}}"
-						  SelectedValue="{Binding Socket, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+				<TextBox Text="{Binding Power, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						 Width="150" />
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal"
+						Margin="3 3 3 3">
+				<sdk:Label Content="GraphicChip"
+						   Width="80" />
+				<ComboBox ItemsSource="{Binding GraphicChipsView, Source={StaticResource ViewModel}}"
+						  SelectedValue="{Binding GraphicChip, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						  DisplayMemberPath="Name"
 						  Width="150" />
 			</StackPanel>
 			<StackPanel Orientation="Horizontal"
 						Margin="3 3 3 3">
-				<sdk:Label Content="GPU"
+				<sdk:Label Content="Cooler"
 						   Width="80" />
-				<ComboBox ItemsSource="{Binding GPUsView, Source={StaticResource ViewModel}}"
-						  SelectedValue="{Binding GPU, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-						  DisplayMemberPath="Name"
+				<ComboBox ItemsSource="{Binding CoolersView, Source={StaticResource ViewModel}}"
+						  SelectedValue="{Binding Cooler, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						  DisplayMemberPath="Device.Model"
 						  Width="150" />
 			</StackPanel>
 		</StackPanel>

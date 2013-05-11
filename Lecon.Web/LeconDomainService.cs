@@ -18,7 +18,7 @@ namespace Lecon.Web
 	// Also consider adding roles to restrict access as appropriate.
 	// [RequiresAuthentication]
 	[EnableClientAccess()]
-	public class LeconDomainService : LinqToEntitiesDomainService<LeconEntities>
+	public partial class LeconDomainService : LinqToEntitiesDomainService<LeconEntities>
 	{
 
 		// TODO:

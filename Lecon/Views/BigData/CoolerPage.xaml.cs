@@ -14,15 +14,15 @@ using Lecon.ViewModels;
 
 namespace Lecon.Views
 {
-	public partial class CPUPage : Page
+	public partial class CoolerPage : Page
 	{
-		public CPU_ViewModel ViewModel { get; set; }
+		public Cooler_ViewModel ViewModel { get; set; }
 
-		public CPUPage()
+		public CoolerPage()
 		{
 			InitializeComponent();
 
-			this.ViewModel = this.Resources["ViewModel"] as CPU_ViewModel;
+			this.ViewModel = this.Resources["ViewModel"] as Cooler_ViewModel;
 
 		}
 

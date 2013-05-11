@@ -14,15 +14,15 @@ using Lecon.ViewModels;
 
 namespace Lecon.Views
 {
-	public partial class CPUPage : Page
+	public partial class GPUPage : Page
 	{
-		public CPU_ViewModel ViewModel { get; set; }
+		public GPU_ViewModel ViewModel { get; set; }
 
-		public CPUPage()
+		public GPUPage()
 		{
 			InitializeComponent();
 
-			this.ViewModel = this.Resources["ViewModel"] as CPU_ViewModel;
+			this.ViewModel = this.Resources["ViewModel"] as GPU_ViewModel;
 
 		}
 

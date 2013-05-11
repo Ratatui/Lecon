@@ -183,10 +183,6 @@ namespace Lecon.Web
 
 			public int Id { get; set; }
 
-			public PowerType PowerType { get; set; }
-
-			public int PowerTypeId { get; set; }
-
 			public short Rotation { get; set; }
 
 			public short Size { get; set; }
@@ -683,8 +679,6 @@ namespace Lecon.Web
 			private PowerTypeMetadata()
 			{
 			}
-
-			public EntityCollection<Cooler> Coolers { get; set; }
 
 			public EntityCollection<HardDrive> HardDrives { get; set; }
 

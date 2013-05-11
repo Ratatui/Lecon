@@ -45,7 +45,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("LeconModel", "ChipsetMotherboard", "Chipset", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Lecon.Web.Chipset), "Motherboard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Lecon.Web.Motherboard), true)]
 [assembly: EdmRelationshipAttribute("LeconModel", "CoolerBody", "Cooler", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Lecon.Web.Cooler), "Body", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Lecon.Web.Body), true)]
 [assembly: EdmRelationshipAttribute("LeconModel", "GraphicChipGPU", "GraphicChip", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Lecon.Web.GraphicChip), "GPU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Lecon.Web.GPU), true)]
-[assembly: EdmRelationshipAttribute("LeconModel", "PowerTypeCooler", "PowerType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Lecon.Web.PowerType), "Cooler", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Lecon.Web.Cooler), true)]
 [assembly: EdmRelationshipAttribute("LeconModel", "CoolerGPU", "Cooler", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Lecon.Web.Cooler), "GPU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Lecon.Web.GPU), true)]
 [assembly: EdmRelationshipAttribute("LeconModel", "DeviceTypeCooler", "DeviceType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Lecon.Web.DeviceType), "Cooler", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Lecon.Web.Cooler), true)]
 [assembly: EdmRelationshipAttribute("LeconModel", "MemoryTypeMotherboard", "MemoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Lecon.Web.MemoryType), "Motherboard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Lecon.Web.Motherboard), true)]
@@ -1764,16 +1763,14 @@ namespace Lecon.Web
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="rotation">Initial value of the Rotation property.</param>
         /// <param name="size">Initial value of the Size property.</param>
-        /// <param name="powerTypeId">Initial value of the PowerTypeId property.</param>
         /// <param name="deviceTypeId">Initial value of the DeviceTypeId property.</param>
         /// <param name="deviceId">Initial value of the DeviceId property.</param>
-        public static Cooler CreateCooler(global::System.Int32 id, global::System.Int16 rotation, global::System.Int16 size, global::System.Int32 powerTypeId, global::System.Int32 deviceTypeId, global::System.Int32 deviceId)
+        public static Cooler CreateCooler(global::System.Int32 id, global::System.Int16 rotation, global::System.Int16 size, global::System.Int32 deviceTypeId, global::System.Int32 deviceId)
         {
             Cooler cooler = new Cooler();
             cooler.Id = id;
             cooler.Rotation = rotation;
             cooler.Size = size;
-            cooler.PowerTypeId = powerTypeId;
             cooler.DeviceTypeId = deviceTypeId;
             cooler.DeviceId = deviceId;
             return cooler;
@@ -1857,30 +1854,6 @@ namespace Lecon.Web
         private global::System.Int16 _Size;
         partial void OnSizeChanging(global::System.Int16 value);
         partial void OnSizeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 PowerTypeId
-        {
-            get
-            {
-                return _PowerTypeId;
-            }
-            set
-            {
-                OnPowerTypeIdChanging(value);
-                ReportPropertyChanging("PowerTypeId");
-                _PowerTypeId = StructuralObject.SetValidValue(value, "PowerTypeId");
-                ReportPropertyChanged("PowerTypeId");
-                OnPowerTypeIdChanged();
-            }
-        }
-        private global::System.Int32 _PowerTypeId;
-        partial void OnPowerTypeIdChanging(global::System.Int32 value);
-        partial void OnPowerTypeIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2012,44 +1985,6 @@ namespace Lecon.Web
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Body>("LeconModel.CoolerBody", "Body", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LeconModel", "PowerTypeCooler", "PowerType")]
-        public PowerType PowerType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PowerType>("LeconModel.PowerTypeCooler", "PowerType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PowerType>("LeconModel.PowerTypeCooler", "PowerType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<PowerType> PowerTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PowerType>("LeconModel.PowerTypeCooler", "PowerType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PowerType>("LeconModel.PowerTypeCooler", "PowerType", value);
                 }
             }
         }
@@ -5137,28 +5072,6 @@ namespace Lecon.Web
         #endregion
 
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LeconModel", "PowerTypeCooler", "Cooler")]
-        public EntityCollection<Cooler> Coolers
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Cooler>("LeconModel.PowerTypeCooler", "Cooler");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Cooler>("LeconModel.PowerTypeCooler", "Cooler", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.

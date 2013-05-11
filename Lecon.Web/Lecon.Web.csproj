@@ -93,6 +93,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainService.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="LeconDomainService.cs" />
     <Compile Include="LeconDomainService.metadata.cs" />

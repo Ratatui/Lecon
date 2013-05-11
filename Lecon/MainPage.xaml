@@ -58,14 +58,28 @@
 										 NavigateUri="/Home"
 										 TargetName="ContentFrame"
 										 Content="{Binding Path=Strings.HomePageTitle, Source={StaticResource ApplicationResources}}" />
-						
+
 						<Rectangle Style="{StaticResource DividerStyle}" />
 
 						<HyperlinkButton Style="{StaticResource LinkStyle}"
 										 NavigateUri="/BigData/CPUPage"
 										 TargetName="ContentFrame"
 										 Content="CPUs" />
-						
+
+						<Rectangle Style="{StaticResource DividerStyle}" />
+
+						<HyperlinkButton Style="{StaticResource LinkStyle}"
+										 NavigateUri="/BigData/GPUPage"
+										 TargetName="ContentFrame"
+										 Content="GPUs" />
+
+						<Rectangle Style="{StaticResource DividerStyle}" />
+
+						<HyperlinkButton Style="{StaticResource LinkStyle}"
+										 NavigateUri="/BigData/CoolerPage"
+										 TargetName="ContentFrame"
+										 Content="Coolers" />
+
 						<Rectangle Style="{StaticResource DividerStyle}" />
 
 						<HyperlinkButton Style="{StaticResource LinkStyle}"

@@ -16,35 +16,32 @@ using System.ComponentModel;
 
 namespace Lecon.ViewModels
 {
-	public class CPU_ViewModel : ViewModel
+	public class Cooler_ViewModel : ViewModel
 	{
-		public ICollectionView CPUsView { get; set; }
-		public ICollectionView GPUsView { get; set; }
-		public ICollectionView SocketsView { get; set; }
+		public ICollectionView DeviceTypesView { get; set; }
+		public ICollectionView CoolersView { get; set; }
 		public ICollectionView ManufacturersView { get; set; }
 
-		public CPU_ViewModel()
+		public Cooler_ViewModel()
 			: base()
 		{
-			Context.Load(Context.GetCPUsQuery());
-			Context.Load(Context.GetGPUsQuery());
+			Context.Load(Context.GetDeviceTypesQuery());
+			Context.Load(Context.GetCoolersQuery());
 			Context.Load(Context.GetManufacturersQuery());
-			Context.Load(Context.GetSocketsQuery());
 
-			this.CPUsView = this.CreateView(Context.CPUs);
-			this.GPUsView = this.CreateView(Context.GPUs);
-			this.SocketsView = this.CreateView(Context.Sockets);
+			this.DeviceTypesView = this.CreateView(Context.DeviceTypes);
+			this.CoolersView = this.CreateView(Context.Coolers);
 			this.ManufacturersView = this.CreateView(Context.Manufacturers);
 		}
 
 		protected override void OnAddCommand()
 		{
-			var newCPU = new CPU();
+			var newCooler = new Cooler();
 			var newDevice = new Device();
-			newCPU.Device = newDevice;
+			newCooler.Device = newDevice;
 
-			this.Context.CPUs.Add(newCPU);
-			this.CPUsView.MoveCurrentTo(newCPU);
+			this.Context.Coolers.Add(newCooler);
+			this.CoolersView.MoveCurrentTo(newCooler);
 		}
 
 		protected override void OnRefreshCommand()

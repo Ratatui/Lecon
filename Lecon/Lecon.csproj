@@ -104,6 +104,8 @@
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\LoginInfo.cs" />
+    <Compile Include="ViewModels\Cooler_ViewModel.cs" />
+    <Compile Include="ViewModels\GPU_ViewModel.cs" />
     <Compile Include="ViewModels\CPU_ViewModel.cs" />
     <Compile Include="ViewModels\UICommand.cs" />
     <Compile Include="Models\User.partial.cs" />
@@ -122,6 +124,12 @@
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\AddOneStringDialog.xaml.cs">
       <DependentUpon>AddOneStringDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BigData\CoolerPage.xaml.cs">
+      <DependentUpon>CoolerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BigData\GPUPage.xaml.cs">
+      <DependentUpon>GPUPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BigData\CPUPage.xaml.cs">
       <DependentUpon>CPUPage.xaml</DependentUpon>
@@ -199,6 +207,14 @@
     <Page Include="Views\AddOneStringDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BigData\CoolerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BigData\GPUPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\BigData\CPUPage.xaml">
       <SubType>Designer</SubType>

@@ -16,43 +16,45 @@ using System.ComponentModel;
 
 namespace Lecon.ViewModels
 {
-	public class CPU_ViewModel : ViewModel
+	public class GPU_ViewModel : ViewModel
 	{
-		public ICollectionView CPUsView { get; set; }
 		public ICollectionView GPUsView { get; set; }
-		public ICollectionView SocketsView { get; set; }
+		public ICollectionView CoolersView { get; set; }
+		public ICollectionView GraphicChipsView { get; set; }
 		public ICollectionView ManufacturersView { get; set; }
 
-		public CPU_ViewModel()
+		public GPU_ViewModel()
 			: base()
 		{
-			Context.Load(Context.GetCPUsQuery());
-			Context.Load(Context.GetGPUsQuery());
-			Context.Load(Context.GetManufacturersQuery());
-			Context.Load(Context.GetSocketsQuery());
+			this.Context.Load(Context.GetGPUsQuery());
+			this.Context.Load(Context.GetManufacturersQuery());
+			this.Context.Load(Context.GetGraphicChipsQuery());
+			this.Context.Load(Context.GetCoolersForDeviceTypeNameQuery("GPU"));
 
-			this.CPUsView = this.CreateView(Context.CPUs);
 			this.GPUsView = this.CreateView(Context.GPUs);
-			this.SocketsView = this.CreateView(Context.Sockets);
+			this.GraphicChipsView = this.CreateView(Context.GraphicChips);
 			this.ManufacturersView = this.CreateView(Context.Manufacturers);
+			this.CoolersView = this.CreateView(Context.Coolers);
 		}
 
 		protected override void OnAddCommand()
 		{
-			var newCPU = new CPU();
+			var newGPU = new GPU();
 			var newDevice = new Device();
-			newCPU.Device = newDevice;
+			newGPU.Device = newDevice;
 
-			this.Context.CPUs.Add(newCPU);
-			this.CPUsView.MoveCurrentTo(newCPU);
+			this.Context.GPUs.Add(newGPU);
+			this.GPUsView.MoveCurrentTo(newGPU);
 		}
 
 		protected override void OnRefreshCommand()
 		{
+
 		}
 
 		protected override void OnDeleteCommand()
 		{
+
 		}
 	}
 }

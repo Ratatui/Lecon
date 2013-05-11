@@ -5,761 +5,744 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="LeconModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="LeconModelStoreContainer">
-    <EntitySet Name="Assemblys" EntityType="LeconModel.Store.Assemblys" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Devices" EntityType="LeconModel.Store.Devices" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Manufacturers" EntityType="LeconModel.Store.Manufacturers" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CPUs" EntityType="LeconModel.Store.CPUs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="GPUs" EntityType="LeconModel.Store.GPUs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Memorys" EntityType="LeconModel.Store.Memorys" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Coolers" EntityType="LeconModel.Store.Coolers" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PSUs" EntityType="LeconModel.Store.PSUs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="HardDrives" EntityType="LeconModel.Store.HardDrives" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Sockets" EntityType="LeconModel.Store.Sockets" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemoryTypes" EntityType="LeconModel.Store.MemoryTypes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PowerTypes" EntityType="LeconModel.Store.PowerTypes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Motherboards" EntityType="LeconModel.Store.Motherboards" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DeviceTypes" EntityType="LeconModel.Store.DeviceTypes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="FormFactors" EntityType="LeconModel.Store.FormFactors" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Chipsets" EntityType="LeconModel.Store.Chipsets" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Bodys" EntityType="LeconModel.Store.Bodys" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="GraphicChips" EntityType="LeconModel.Store.GraphicChips" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="GPUAssembly" Association="LeconModel.Store.GPUAssembly">
-      <End Role="GPU" EntitySet="GPUs" />
-      <End Role="Assembly" EntitySet="Assemblys" />
-    </AssociationSet>
-    <AssociationSet Name="MemoryAssembly" Association="LeconModel.Store.MemoryAssembly">
-      <End Role="Memory" EntitySet="Memorys" />
-      <End Role="Assembly" EntitySet="Assemblys" />
-    </AssociationSet>
-    <AssociationSet Name="HardDriveAssembly" Association="LeconModel.Store.HardDriveAssembly">
-      <End Role="HardDrive" EntitySet="HardDrives" />
-      <End Role="Assembly" EntitySet="Assemblys" />
-    </AssociationSet>
-    <AssociationSet Name="CPUAssembly" Association="LeconModel.Store.CPUAssembly">
-      <End Role="CPU" EntitySet="CPUs" />
-      <End Role="Assembly" EntitySet="Assemblys" />
-    </AssociationSet>
-    <AssociationSet Name="CoolerAssembly" Association="LeconModel.Store.CoolerAssembly">
-      <End Role="Cooler" EntitySet="Coolers" />
-      <End Role="Assembly" EntitySet="Assemblys" />
-    </AssociationSet>
-    <AssociationSet Name="PSUAssembly" Association="LeconModel.Store.PSUAssembly">
-      <End Role="PSU" EntitySet="PSUs" />
-      <End Role="Assembly" EntitySet="Assemblys" />
-    </AssociationSet>
-    <AssociationSet Name="BodyAssembly" Association="LeconModel.Store.BodyAssembly">
-      <End Role="Body" EntitySet="Bodys" />
-      <End Role="Assembly" EntitySet="Assemblys" />
-    </AssociationSet>
-    <AssociationSet Name="ManufacturerDevice" Association="LeconModel.Store.ManufacturerDevice">
-      <End Role="Manufacturer" EntitySet="Manufacturers" />
-      <End Role="Device" EntitySet="Devices" />
-    </AssociationSet>
-    <AssociationSet Name="DeviceMotherboard" Association="LeconModel.Store.DeviceMotherboard">
-      <End Role="Device" EntitySet="Devices" />
-      <End Role="Motherboard" EntitySet="Motherboards" />
-    </AssociationSet>
-    <AssociationSet Name="DeviceHardDrive" Association="LeconModel.Store.DeviceHardDrive">
-      <End Role="Device" EntitySet="Devices" />
-      <End Role="HardDrive" EntitySet="HardDrives" />
-    </AssociationSet>
-    <AssociationSet Name="DevicePSU" Association="LeconModel.Store.DevicePSU">
-      <End Role="Device" EntitySet="Devices" />
-      <End Role="PSU" EntitySet="PSUs" />
-    </AssociationSet>
-    <AssociationSet Name="DeviceCooler" Association="LeconModel.Store.DeviceCooler">
-      <End Role="Device" EntitySet="Devices" />
-      <End Role="Cooler" EntitySet="Coolers" />
-    </AssociationSet>
-    <AssociationSet Name="DeviceBody" Association="LeconModel.Store.DeviceBody">
-      <End Role="Device" EntitySet="Devices" />
-      <End Role="Body" EntitySet="Bodys" />
-    </AssociationSet>
-    <AssociationSet Name="DeviceMemory" Association="LeconModel.Store.DeviceMemory">
-      <End Role="Device" EntitySet="Devices" />
-      <End Role="Memory" EntitySet="Memorys" />
-    </AssociationSet>
-    <AssociationSet Name="DeviceGPU" Association="LeconModel.Store.DeviceGPU">
-      <End Role="Device" EntitySet="Devices" />
-      <End Role="GPU" EntitySet="GPUs" />
-    </AssociationSet>
-    <AssociationSet Name="DeviceCPU" Association="LeconModel.Store.DeviceCPU">
-      <End Role="Device" EntitySet="Devices" />
-      <End Role="CPU" EntitySet="CPUs" />
-    </AssociationSet>
-    <AssociationSet Name="SocketCPU" Association="LeconModel.Store.SocketCPU">
-      <End Role="Socket" EntitySet="Sockets" />
-      <End Role="CPU" EntitySet="CPUs" />
-    </AssociationSet>
-    <AssociationSet Name="GPUCPU" Association="LeconModel.Store.GPUCPU">
-      <End Role="GPU" EntitySet="GPUs" />
-      <End Role="CPU" EntitySet="CPUs" />
-    </AssociationSet>
-    <AssociationSet Name="SocketMotherboard" Association="LeconModel.Store.SocketMotherboard">
-      <End Role="Socket" EntitySet="Sockets" />
-      <End Role="Motherboard" EntitySet="Motherboards" />
-    </AssociationSet>
-    <AssociationSet Name="FormFactorMotherboard" Association="LeconModel.Store.FormFactorMotherboard">
-      <End Role="FormFactor" EntitySet="FormFactors" />
-      <End Role="Motherboard" EntitySet="Motherboards" />
-    </AssociationSet>
-    <AssociationSet Name="FormFactorBody" Association="LeconModel.Store.FormFactorBody">
-      <End Role="FormFactor" EntitySet="FormFactors" />
-      <End Role="Body" EntitySet="Bodys" />
-    </AssociationSet>
-    <AssociationSet Name="FormFactorPSU" Association="LeconModel.Store.FormFactorPSU">
-      <End Role="FormFactor" EntitySet="FormFactors" />
-      <End Role="PSU" EntitySet="PSUs" />
-    </AssociationSet>
-    <AssociationSet Name="GPUMotherboard" Association="LeconModel.Store.GPUMotherboard">
-      <End Role="GPU" EntitySet="GPUs" />
-      <End Role="Motherboard" EntitySet="Motherboards" />
-    </AssociationSet>
-    <AssociationSet Name="ChipsetMotherboard" Association="LeconModel.Store.ChipsetMotherboard">
-      <End Role="Chipset" EntitySet="Chipsets" />
-      <End Role="Motherboard" EntitySet="Motherboards" />
-    </AssociationSet>
-    <AssociationSet Name="CoolerBody" Association="LeconModel.Store.CoolerBody">
-      <End Role="Cooler" EntitySet="Coolers" />
-      <End Role="Body" EntitySet="Bodys" />
-    </AssociationSet>
-    <AssociationSet Name="GraphicChipGPU" Association="LeconModel.Store.GraphicChipGPU">
-      <End Role="GraphicChip" EntitySet="GraphicChips" />
-      <End Role="GPU" EntitySet="GPUs" />
-    </AssociationSet>
-    <AssociationSet Name="PowerTypeCooler" Association="LeconModel.Store.PowerTypeCooler">
-      <End Role="PowerType" EntitySet="PowerTypes" />
-      <End Role="Cooler" EntitySet="Coolers" />
-    </AssociationSet>
-    <AssociationSet Name="CoolerGPU" Association="LeconModel.Store.CoolerGPU">
-      <End Role="Cooler" EntitySet="Coolers" />
-      <End Role="GPU" EntitySet="GPUs" />
-    </AssociationSet>
-    <AssociationSet Name="DeviceTypeCooler" Association="LeconModel.Store.DeviceTypeCooler">
-      <End Role="DeviceType" EntitySet="DeviceTypes" />
-      <End Role="Cooler" EntitySet="Coolers" />
-    </AssociationSet>
-    <AssociationSet Name="MemoryTypeMotherboard" Association="LeconModel.Store.MemoryTypeMotherboard">
-      <End Role="MemoryType" EntitySet="MemoryTypes" />
-      <End Role="Motherboard" EntitySet="Motherboards" />
-    </AssociationSet>
-    <AssociationSet Name="MemoryTypeMemory" Association="LeconModel.Store.MemoryTypeMemory">
-      <End Role="MemoryType" EntitySet="MemoryTypes" />
-      <End Role="Memory" EntitySet="Memorys" />
-    </AssociationSet>
-    <AssociationSet Name="PowerTypeHardDrive" Association="LeconModel.Store.PowerTypeHardDrive">
-      <End Role="PowerType" EntitySet="PowerTypes" />
-      <End Role="HardDrive" EntitySet="HardDrives" />
-    </AssociationSet>
-    <AssociationSet Name="PowerTypePSU" Association="LeconModel.Store.PowerTypePSU">
-      <End Role="PowerType" EntitySet="PowerTypes" />
-      <End Role="PSU" EntitySet="PSUs" />
-    </AssociationSet>
-    <AssociationSet Name="PowerTypeMotherboard" Association="LeconModel.Store.PowerTypeMotherboard">
-      <End Role="PowerType" EntitySet="PowerTypes" />
-      <End Role="Motherboard" EntitySet="Motherboards" />
-    </AssociationSet>
-    <AssociationSet Name="MotherboardAssembly" Association="LeconModel.Store.MotherboardAssembly">
-      <End Role="Motherboard" EntitySet="Motherboards" />
-      <End Role="Assembly" EntitySet="Assemblys" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Assemblys">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="GPUId" Type="int" Nullable="false" />
-    <Property Name="CPUId" Type="int" Nullable="false" />
-    <Property Name="MemoryId" Type="int" Nullable="false" />
-    <Property Name="MotherBoardId" Type="int" Nullable="false" />
-    <Property Name="BodyId" Type="int" Nullable="false" />
-    <Property Name="PSUId" Type="int" Nullable="false" />
-    <Property Name="HardDriveId" Type="int" Nullable="false" />
-    <Property Name="CoolerId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Devices">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Model" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Price" Type="float" Nullable="false" />
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ManufacturerId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Manufacturers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CPUs">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Frequency" Type="float" Nullable="false" />
-    <Property Name="СacheOne" Type="smallint" Nullable="false" />
-    <Property Name="СacheTwo" Type="smallint" Nullable="false" />
-    <Property Name="СacheThree" Type="smallint" Nullable="false" />
-    <Property Name="Cores" Type="smallint" Nullable="false" />
-    <Property Name="SocketId" Type="int" Nullable="false" />
-    <Property Name="DeviceId" Type="int" Nullable="false" />
-    <Property Name="GPUId" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="GPUs">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Size" Type="smallint" Nullable="false" />
-    <Property Name="Power" Type="smallint" Nullable="false" />
-    <Property Name="AdditionalPower" Type="bit" Nullable="false" />
-    <Property Name="GraphicChipId" Type="int" Nullable="false" />
-    <Property Name="CoolerId" Type="int" Nullable="false" />
-    <Property Name="DeviceId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Memorys">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Size" Type="smallint" Nullable="false" />
-    <Property Name="Frequency" Type="smallint" Nullable="false" />
-    <Property Name="MemoryTypeId" Type="int" Nullable="false" />
-    <Property Name="DeviceId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Coolers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Rotation" Type="smallint" Nullable="false" />
-    <Property Name="Size" Type="smallint" Nullable="false" />
-    <Property Name="PowerTypeId" Type="int" Nullable="false" />
-    <Property Name="DeviceTypeId" Type="int" Nullable="false" />
-    <Property Name="DeviceId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PSUs">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SATA" Type="smallint" Nullable="false" />
-    <Property Name="IDE" Type="smallint" Nullable="false" />
-    <Property Name="PowerTypeId" Type="int" Nullable="false" />
-    <Property Name="FormFactorId" Type="int" Nullable="false" />
-    <Property Name="DeviceId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="HardDrives">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Size" Type="smallint" Nullable="false" />
-    <Property Name="Rotation" Type="smallint" Nullable="false" />
-    <Property Name="PowerTypeId" Type="int" Nullable="false" />
-    <Property Name="Cache" Type="smallint" Nullable="false" />
-    <Property Name="DeviceId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Sockets">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="MemoryTypes">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PowerTypes">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Motherboards">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Frequency" Type="smallint" Nullable="false" />
-    <Property Name="SATA" Type="smallint" Nullable="false" />
-    <Property Name="GPUId" Type="int" Nullable="true" />
-    <Property Name="SocketId" Type="int" Nullable="false" />
-    <Property Name="PowerTypeId" Type="int" Nullable="false" />
-    <Property Name="MemoryTypeId" Type="int" Nullable="false" />
-    <Property Name="ChipsetId" Type="int" Nullable="false" />
-    <Property Name="FormFactorId" Type="int" Nullable="false" />
-    <Property Name="DeviceId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DeviceTypes">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="FormFactors">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Chipsets">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Bodys">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FormFactorId" Type="int" Nullable="false" />
-    <Property Name="CoolerId" Type="int" Nullable="true" />
-    <Property Name="DeviceId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="GraphicChips">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Frequency" Type="float" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Сapacity" Type="smallint" Nullable="false" />
-  </EntityType>
-  <Association Name="GPUAssembly">
-    <End Role="GPU" Type="LeconModel.Store.GPUs" Multiplicity="1" />
-    <End Role="Assembly" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="GPU">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Assembly">
-        <PropertyRef Name="GPUId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="MemoryAssembly">
-    <End Role="Memory" Type="LeconModel.Store.Memorys" Multiplicity="1" />
-    <End Role="Assembly" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Memory">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Assembly">
-        <PropertyRef Name="MemoryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="HardDriveAssembly">
-    <End Role="HardDrive" Type="LeconModel.Store.HardDrives" Multiplicity="1" />
-    <End Role="Assembly" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HardDrive">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Assembly">
-        <PropertyRef Name="HardDriveId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CPUAssembly">
-    <End Role="CPU" Type="LeconModel.Store.CPUs" Multiplicity="1" />
-    <End Role="Assembly" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CPU">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Assembly">
-        <PropertyRef Name="CPUId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CoolerAssembly">
-    <End Role="Cooler" Type="LeconModel.Store.Coolers" Multiplicity="1" />
-    <End Role="Assembly" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cooler">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Assembly">
-        <PropertyRef Name="CoolerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PSUAssembly">
-    <End Role="PSU" Type="LeconModel.Store.PSUs" Multiplicity="1" />
-    <End Role="Assembly" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PSU">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Assembly">
-        <PropertyRef Name="PSUId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="BodyAssembly">
-    <End Role="Body" Type="LeconModel.Store.Bodys" Multiplicity="1" />
-    <End Role="Assembly" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Body">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Assembly">
-        <PropertyRef Name="BodyId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ManufacturerDevice">
-    <End Role="Manufacturer" Type="LeconModel.Store.Manufacturers" Multiplicity="1" />
-    <End Role="Device" Type="LeconModel.Store.Devices" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Manufacturer">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Device">
-        <PropertyRef Name="ManufacturerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviceMotherboard">
-    <End Role="Device" Type="LeconModel.Store.Devices" Multiplicity="1" />
-    <End Role="Motherboard" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Device">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Motherboard">
-        <PropertyRef Name="DeviceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviceHardDrive">
-    <End Role="Device" Type="LeconModel.Store.Devices" Multiplicity="1" />
-    <End Role="HardDrive" Type="LeconModel.Store.HardDrives" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Device">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="HardDrive">
-        <PropertyRef Name="DeviceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DevicePSU">
-    <End Role="Device" Type="LeconModel.Store.Devices" Multiplicity="1" />
-    <End Role="PSU" Type="LeconModel.Store.PSUs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Device">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PSU">
-        <PropertyRef Name="DeviceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviceCooler">
-    <End Role="Device" Type="LeconModel.Store.Devices" Multiplicity="1" />
-    <End Role="Cooler" Type="LeconModel.Store.Coolers" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Device">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cooler">
-        <PropertyRef Name="DeviceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviceBody">
-    <End Role="Device" Type="LeconModel.Store.Devices" Multiplicity="1" />
-    <End Role="Body" Type="LeconModel.Store.Bodys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Device">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Body">
-        <PropertyRef Name="DeviceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviceMemory">
-    <End Role="Device" Type="LeconModel.Store.Devices" Multiplicity="1" />
-    <End Role="Memory" Type="LeconModel.Store.Memorys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Device">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Memory">
-        <PropertyRef Name="DeviceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviceGPU">
-    <End Role="Device" Type="LeconModel.Store.Devices" Multiplicity="1" />
-    <End Role="GPU" Type="LeconModel.Store.GPUs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Device">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="GPU">
-        <PropertyRef Name="DeviceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviceCPU">
-    <End Role="Device" Type="LeconModel.Store.Devices" Multiplicity="1" />
-    <End Role="CPU" Type="LeconModel.Store.CPUs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Device">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CPU">
-        <PropertyRef Name="DeviceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SocketCPU">
-    <End Role="Socket" Type="LeconModel.Store.Sockets" Multiplicity="1" />
-    <End Role="CPU" Type="LeconModel.Store.CPUs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Socket">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CPU">
-        <PropertyRef Name="SocketId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="GPUCPU">
-    <End Role="GPU" Type="LeconModel.Store.GPUs" Multiplicity="0..1" />
-    <End Role="CPU" Type="LeconModel.Store.CPUs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="GPU">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CPU">
-        <PropertyRef Name="GPUId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SocketMotherboard">
-    <End Role="Socket" Type="LeconModel.Store.Sockets" Multiplicity="1" />
-    <End Role="Motherboard" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Socket">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Motherboard">
-        <PropertyRef Name="SocketId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FormFactorMotherboard">
-    <End Role="FormFactor" Type="LeconModel.Store.FormFactors" Multiplicity="1" />
-    <End Role="Motherboard" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="FormFactor">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Motherboard">
-        <PropertyRef Name="FormFactorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FormFactorBody">
-    <End Role="FormFactor" Type="LeconModel.Store.FormFactors" Multiplicity="1" />
-    <End Role="Body" Type="LeconModel.Store.Bodys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="FormFactor">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Body">
-        <PropertyRef Name="FormFactorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FormFactorPSU">
-    <End Role="FormFactor" Type="LeconModel.Store.FormFactors" Multiplicity="1" />
-    <End Role="PSU" Type="LeconModel.Store.PSUs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="FormFactor">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PSU">
-        <PropertyRef Name="FormFactorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="GPUMotherboard">
-    <End Role="GPU" Type="LeconModel.Store.GPUs" Multiplicity="0..1" />
-    <End Role="Motherboard" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="GPU">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Motherboard">
-        <PropertyRef Name="GPUId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ChipsetMotherboard">
-    <End Role="Chipset" Type="LeconModel.Store.Chipsets" Multiplicity="1" />
-    <End Role="Motherboard" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chipset">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Motherboard">
-        <PropertyRef Name="ChipsetId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CoolerBody">
-    <End Role="Cooler" Type="LeconModel.Store.Coolers" Multiplicity="0..1" />
-    <End Role="Body" Type="LeconModel.Store.Bodys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cooler">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Body">
-        <PropertyRef Name="CoolerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="GraphicChipGPU">
-    <End Role="GraphicChip" Type="LeconModel.Store.GraphicChips" Multiplicity="1" />
-    <End Role="GPU" Type="LeconModel.Store.GPUs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="GraphicChip">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="GPU">
-        <PropertyRef Name="GraphicChipId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PowerTypeCooler">
-    <End Role="PowerType" Type="LeconModel.Store.PowerTypes" Multiplicity="1" />
-    <End Role="Cooler" Type="LeconModel.Store.Coolers" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PowerType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cooler">
-        <PropertyRef Name="PowerTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CoolerGPU">
-    <End Role="Cooler" Type="LeconModel.Store.Coolers" Multiplicity="1" />
-    <End Role="GPU" Type="LeconModel.Store.GPUs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cooler">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="GPU">
-        <PropertyRef Name="CoolerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviceTypeCooler">
-    <End Role="DeviceType" Type="LeconModel.Store.DeviceTypes" Multiplicity="1" />
-    <End Role="Cooler" Type="LeconModel.Store.Coolers" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DeviceType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cooler">
-        <PropertyRef Name="DeviceTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="MemoryTypeMotherboard">
-    <End Role="MemoryType" Type="LeconModel.Store.MemoryTypes" Multiplicity="1" />
-    <End Role="Motherboard" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MemoryType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Motherboard">
-        <PropertyRef Name="MemoryTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="MemoryTypeMemory">
-    <End Role="MemoryType" Type="LeconModel.Store.MemoryTypes" Multiplicity="1" />
-    <End Role="Memory" Type="LeconModel.Store.Memorys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MemoryType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Memory">
-        <PropertyRef Name="MemoryTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PowerTypeHardDrive">
-    <End Role="PowerType" Type="LeconModel.Store.PowerTypes" Multiplicity="1" />
-    <End Role="HardDrive" Type="LeconModel.Store.HardDrives" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PowerType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="HardDrive">
-        <PropertyRef Name="PowerTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PowerTypePSU">
-    <End Role="PowerType" Type="LeconModel.Store.PowerTypes" Multiplicity="1" />
-    <End Role="PSU" Type="LeconModel.Store.PSUs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PowerType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PSU">
-        <PropertyRef Name="PowerTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PowerTypeMotherboard">
-    <End Role="PowerType" Type="LeconModel.Store.PowerTypes" Multiplicity="1" />
-    <End Role="Motherboard" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PowerType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Motherboard">
-        <PropertyRef Name="PowerTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="MotherboardAssembly">
-    <End Role="Motherboard" Type="LeconModel.Store.Motherboards" Multiplicity="1" />
-    <End Role="Assembly" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Motherboard">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Assembly">
-        <PropertyRef Name="MotherBoardId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+        <EntityContainer Name="LeconModelStoreContainer">
+          <EntitySet Name="Assemblys" EntityType="LeconModel.Store.Assemblys" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bodys" EntityType="LeconModel.Store.Bodys" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Chipsets" EntityType="LeconModel.Store.Chipsets" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Coolers" EntityType="LeconModel.Store.Coolers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CPUs" EntityType="LeconModel.Store.CPUs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Devices" EntityType="LeconModel.Store.Devices" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DeviceTypes" EntityType="LeconModel.Store.DeviceTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FormFactors" EntityType="LeconModel.Store.FormFactors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GPUs" EntityType="LeconModel.Store.GPUs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GraphicChips" EntityType="LeconModel.Store.GraphicChips" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HardDrives" EntityType="LeconModel.Store.HardDrives" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Manufacturers" EntityType="LeconModel.Store.Manufacturers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Memorys" EntityType="LeconModel.Store.Memorys" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MemoryTypes" EntityType="LeconModel.Store.MemoryTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Motherboards" EntityType="LeconModel.Store.Motherboards" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PowerTypes" EntityType="LeconModel.Store.PowerTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PSUs" EntityType="LeconModel.Store.PSUs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sockets" EntityType="LeconModel.Store.Sockets" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BodyAssembly" Association="LeconModel.Store.FK_BodyAssembly">
+            <End Role="Bodys" EntitySet="Bodys" />
+            <End Role="Assemblys" EntitySet="Assemblys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChipsetMotherboard" Association="LeconModel.Store.FK_ChipsetMotherboard">
+            <End Role="Chipsets" EntitySet="Chipsets" />
+            <End Role="Motherboards" EntitySet="Motherboards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoolerAssembly" Association="LeconModel.Store.FK_CoolerAssembly">
+            <End Role="Coolers" EntitySet="Coolers" />
+            <End Role="Assemblys" EntitySet="Assemblys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoolerBody" Association="LeconModel.Store.FK_CoolerBody">
+            <End Role="Coolers" EntitySet="Coolers" />
+            <End Role="Bodys" EntitySet="Bodys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoolerGPU" Association="LeconModel.Store.FK_CoolerGPU">
+            <End Role="Coolers" EntitySet="Coolers" />
+            <End Role="GPUs" EntitySet="GPUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPUAssembly" Association="LeconModel.Store.FK_CPUAssembly">
+            <End Role="CPUs" EntitySet="CPUs" />
+            <End Role="Assemblys" EntitySet="Assemblys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceBody" Association="LeconModel.Store.FK_DeviceBody">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="Bodys" EntitySet="Bodys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceCooler" Association="LeconModel.Store.FK_DeviceCooler">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="Coolers" EntitySet="Coolers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceCPU" Association="LeconModel.Store.FK_DeviceCPU">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="CPUs" EntitySet="CPUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceGPU" Association="LeconModel.Store.FK_DeviceGPU">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="GPUs" EntitySet="GPUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceHardDrive" Association="LeconModel.Store.FK_DeviceHardDrive">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="HardDrives" EntitySet="HardDrives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceMemory" Association="LeconModel.Store.FK_DeviceMemory">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="Memorys" EntitySet="Memorys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceMotherboard" Association="LeconModel.Store.FK_DeviceMotherboard">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="Motherboards" EntitySet="Motherboards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DevicePSU" Association="LeconModel.Store.FK_DevicePSU">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="PSUs" EntitySet="PSUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceTypeCooler" Association="LeconModel.Store.FK_DeviceTypeCooler">
+            <End Role="DeviceTypes" EntitySet="DeviceTypes" />
+            <End Role="Coolers" EntitySet="Coolers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormFactorBody" Association="LeconModel.Store.FK_FormFactorBody">
+            <End Role="FormFactors" EntitySet="FormFactors" />
+            <End Role="Bodys" EntitySet="Bodys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormFactorMotherboard" Association="LeconModel.Store.FK_FormFactorMotherboard">
+            <End Role="FormFactors" EntitySet="FormFactors" />
+            <End Role="Motherboards" EntitySet="Motherboards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormFactorPSU" Association="LeconModel.Store.FK_FormFactorPSU">
+            <End Role="FormFactors" EntitySet="FormFactors" />
+            <End Role="PSUs" EntitySet="PSUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GPUAssembly" Association="LeconModel.Store.FK_GPUAssembly">
+            <End Role="GPUs" EntitySet="GPUs" />
+            <End Role="Assemblys" EntitySet="Assemblys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GPUCPU" Association="LeconModel.Store.FK_GPUCPU">
+            <End Role="GPUs" EntitySet="GPUs" />
+            <End Role="CPUs" EntitySet="CPUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GPUMotherboard" Association="LeconModel.Store.FK_GPUMotherboard">
+            <End Role="GPUs" EntitySet="GPUs" />
+            <End Role="Motherboards" EntitySet="Motherboards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GraphicChipGPU" Association="LeconModel.Store.FK_GraphicChipGPU">
+            <End Role="GraphicChips" EntitySet="GraphicChips" />
+            <End Role="GPUs" EntitySet="GPUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HardDriveAssembly" Association="LeconModel.Store.FK_HardDriveAssembly">
+            <End Role="HardDrives" EntitySet="HardDrives" />
+            <End Role="Assemblys" EntitySet="Assemblys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ManufacturerDevice" Association="LeconModel.Store.FK_ManufacturerDevice">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemoryAssembly" Association="LeconModel.Store.FK_MemoryAssembly">
+            <End Role="Memorys" EntitySet="Memorys" />
+            <End Role="Assemblys" EntitySet="Assemblys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemoryTypeMemory" Association="LeconModel.Store.FK_MemoryTypeMemory">
+            <End Role="MemoryTypes" EntitySet="MemoryTypes" />
+            <End Role="Memorys" EntitySet="Memorys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemoryTypeMotherboard" Association="LeconModel.Store.FK_MemoryTypeMotherboard">
+            <End Role="MemoryTypes" EntitySet="MemoryTypes" />
+            <End Role="Motherboards" EntitySet="Motherboards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MotherboardAssembly" Association="LeconModel.Store.FK_MotherboardAssembly">
+            <End Role="Motherboards" EntitySet="Motherboards" />
+            <End Role="Assemblys" EntitySet="Assemblys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PowerTypeHardDrive" Association="LeconModel.Store.FK_PowerTypeHardDrive">
+            <End Role="PowerTypes" EntitySet="PowerTypes" />
+            <End Role="HardDrives" EntitySet="HardDrives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PowerTypeMotherboard" Association="LeconModel.Store.FK_PowerTypeMotherboard">
+            <End Role="PowerTypes" EntitySet="PowerTypes" />
+            <End Role="Motherboards" EntitySet="Motherboards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PowerTypePSU" Association="LeconModel.Store.FK_PowerTypePSU">
+            <End Role="PowerTypes" EntitySet="PowerTypes" />
+            <End Role="PSUs" EntitySet="PSUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PSUAssembly" Association="LeconModel.Store.FK_PSUAssembly">
+            <End Role="PSUs" EntitySet="PSUs" />
+            <End Role="Assemblys" EntitySet="Assemblys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocketCPU" Association="LeconModel.Store.FK_SocketCPU">
+            <End Role="Sockets" EntitySet="Sockets" />
+            <End Role="CPUs" EntitySet="CPUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocketMotherboard" Association="LeconModel.Store.FK_SocketMotherboard">
+            <End Role="Sockets" EntitySet="Sockets" />
+            <End Role="Motherboards" EntitySet="Motherboards" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Assemblys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GPUId" Type="int" Nullable="false" />
+          <Property Name="CPUId" Type="int" Nullable="false" />
+          <Property Name="MemoryId" Type="int" Nullable="false" />
+          <Property Name="MotherBoardId" Type="int" Nullable="false" />
+          <Property Name="BodyId" Type="int" Nullable="false" />
+          <Property Name="PSUId" Type="int" Nullable="false" />
+          <Property Name="HardDriveId" Type="int" Nullable="false" />
+          <Property Name="CoolerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bodys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FormFactorId" Type="int" Nullable="false" />
+          <Property Name="CoolerId" Type="int" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Chipsets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coolers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Rotation" Type="smallint" Nullable="false" />
+          <Property Name="Size" Type="smallint" Nullable="false" />
+          <Property Name="DeviceTypeId" Type="int" Nullable="false" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CPUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Frequency" Type="float" Nullable="false" />
+          <Property Name="СacheOne" Type="smallint" Nullable="false" />
+          <Property Name="СacheTwo" Type="smallint" Nullable="false" />
+          <Property Name="СacheThree" Type="smallint" Nullable="false" />
+          <Property Name="Cores" Type="smallint" Nullable="false" />
+          <Property Name="SocketId" Type="int" Nullable="false" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+          <Property Name="GPUId" Type="int" />
+        </EntityType>
+        <EntityType Name="Devices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Model" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ManufacturerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FormFactors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GPUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Size" Type="smallint" Nullable="false" />
+          <Property Name="Power" Type="smallint" Nullable="false" />
+          <Property Name="AdditionalPower" Type="bit" Nullable="false" />
+          <Property Name="GraphicChipId" Type="int" Nullable="false" />
+          <Property Name="CoolerId" Type="int" Nullable="false" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GraphicChips">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Frequency" Type="float" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Сapacity" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HardDrives">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Size" Type="smallint" Nullable="false" />
+          <Property Name="Rotation" Type="smallint" Nullable="false" />
+          <Property Name="PowerTypeId" Type="int" Nullable="false" />
+          <Property Name="Cache" Type="smallint" Nullable="false" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manufacturers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Memorys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Size" Type="smallint" Nullable="false" />
+          <Property Name="Frequency" Type="smallint" Nullable="false" />
+          <Property Name="MemoryTypeId" Type="int" Nullable="false" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemoryTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Motherboards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Frequency" Type="smallint" Nullable="false" />
+          <Property Name="SATA" Type="smallint" Nullable="false" />
+          <Property Name="GPUId" Type="int" />
+          <Property Name="SocketId" Type="int" Nullable="false" />
+          <Property Name="PowerTypeId" Type="int" Nullable="false" />
+          <Property Name="MemoryTypeId" Type="int" Nullable="false" />
+          <Property Name="ChipsetId" Type="int" Nullable="false" />
+          <Property Name="FormFactorId" Type="int" Nullable="false" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PowerTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PSUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SATA" Type="smallint" Nullable="false" />
+          <Property Name="IDE" Type="smallint" Nullable="false" />
+          <Property Name="PowerTypeId" Type="int" Nullable="false" />
+          <Property Name="FormFactorId" Type="int" Nullable="false" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sockets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BodyAssembly">
+          <End Role="Bodys" Type="LeconModel.Store.Bodys" Multiplicity="1" />
+          <End Role="Assemblys" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bodys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assemblys">
+              <PropertyRef Name="BodyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChipsetMotherboard">
+          <End Role="Chipsets" Type="LeconModel.Store.Chipsets" Multiplicity="1" />
+          <End Role="Motherboards" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chipsets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Motherboards">
+              <PropertyRef Name="ChipsetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CoolerAssembly">
+          <End Role="Coolers" Type="LeconModel.Store.Coolers" Multiplicity="1" />
+          <End Role="Assemblys" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coolers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assemblys">
+              <PropertyRef Name="CoolerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CoolerBody">
+          <End Role="Coolers" Type="LeconModel.Store.Coolers" Multiplicity="0..1" />
+          <End Role="Bodys" Type="LeconModel.Store.Bodys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coolers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bodys">
+              <PropertyRef Name="CoolerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CoolerGPU">
+          <End Role="Coolers" Type="LeconModel.Store.Coolers" Multiplicity="1" />
+          <End Role="GPUs" Type="LeconModel.Store.GPUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coolers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GPUs">
+              <PropertyRef Name="CoolerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPUAssembly">
+          <End Role="CPUs" Type="LeconModel.Store.CPUs" Multiplicity="1" />
+          <End Role="Assemblys" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPUs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assemblys">
+              <PropertyRef Name="CPUId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceBody">
+          <End Role="Devices" Type="LeconModel.Store.Devices" Multiplicity="1" />
+          <End Role="Bodys" Type="LeconModel.Store.Bodys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bodys">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceCooler">
+          <End Role="Devices" Type="LeconModel.Store.Devices" Multiplicity="1" />
+          <End Role="Coolers" Type="LeconModel.Store.Coolers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coolers">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceCPU">
+          <End Role="Devices" Type="LeconModel.Store.Devices" Multiplicity="1" />
+          <End Role="CPUs" Type="LeconModel.Store.CPUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CPUs">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceGPU">
+          <End Role="Devices" Type="LeconModel.Store.Devices" Multiplicity="1" />
+          <End Role="GPUs" Type="LeconModel.Store.GPUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GPUs">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceHardDrive">
+          <End Role="Devices" Type="LeconModel.Store.Devices" Multiplicity="1" />
+          <End Role="HardDrives" Type="LeconModel.Store.HardDrives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HardDrives">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceMemory">
+          <End Role="Devices" Type="LeconModel.Store.Devices" Multiplicity="1" />
+          <End Role="Memorys" Type="LeconModel.Store.Memorys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Memorys">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceMotherboard">
+          <End Role="Devices" Type="LeconModel.Store.Devices" Multiplicity="1" />
+          <End Role="Motherboards" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Motherboards">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DevicePSU">
+          <End Role="Devices" Type="LeconModel.Store.Devices" Multiplicity="1" />
+          <End Role="PSUs" Type="LeconModel.Store.PSUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PSUs">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceTypeCooler">
+          <End Role="DeviceTypes" Type="LeconModel.Store.DeviceTypes" Multiplicity="1" />
+          <End Role="Coolers" Type="LeconModel.Store.Coolers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coolers">
+              <PropertyRef Name="DeviceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormFactorBody">
+          <End Role="FormFactors" Type="LeconModel.Store.FormFactors" Multiplicity="1" />
+          <End Role="Bodys" Type="LeconModel.Store.Bodys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormFactors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bodys">
+              <PropertyRef Name="FormFactorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormFactorMotherboard">
+          <End Role="FormFactors" Type="LeconModel.Store.FormFactors" Multiplicity="1" />
+          <End Role="Motherboards" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormFactors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Motherboards">
+              <PropertyRef Name="FormFactorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormFactorPSU">
+          <End Role="FormFactors" Type="LeconModel.Store.FormFactors" Multiplicity="1" />
+          <End Role="PSUs" Type="LeconModel.Store.PSUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormFactors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PSUs">
+              <PropertyRef Name="FormFactorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GPUAssembly">
+          <End Role="GPUs" Type="LeconModel.Store.GPUs" Multiplicity="1" />
+          <End Role="Assemblys" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPUs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assemblys">
+              <PropertyRef Name="GPUId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GPUCPU">
+          <End Role="GPUs" Type="LeconModel.Store.GPUs" Multiplicity="0..1" />
+          <End Role="CPUs" Type="LeconModel.Store.CPUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPUs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CPUs">
+              <PropertyRef Name="GPUId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GPUMotherboard">
+          <End Role="GPUs" Type="LeconModel.Store.GPUs" Multiplicity="0..1" />
+          <End Role="Motherboards" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPUs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Motherboards">
+              <PropertyRef Name="GPUId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GraphicChipGPU">
+          <End Role="GraphicChips" Type="LeconModel.Store.GraphicChips" Multiplicity="1" />
+          <End Role="GPUs" Type="LeconModel.Store.GPUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GraphicChips">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GPUs">
+              <PropertyRef Name="GraphicChipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HardDriveAssembly">
+          <End Role="HardDrives" Type="LeconModel.Store.HardDrives" Multiplicity="1" />
+          <End Role="Assemblys" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HardDrives">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assemblys">
+              <PropertyRef Name="HardDriveId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ManufacturerDevice">
+          <End Role="Manufacturers" Type="LeconModel.Store.Manufacturers" Multiplicity="1" />
+          <End Role="Devices" Type="LeconModel.Store.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="ManufacturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemoryAssembly">
+          <End Role="Memorys" Type="LeconModel.Store.Memorys" Multiplicity="1" />
+          <End Role="Assemblys" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Memorys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assemblys">
+              <PropertyRef Name="MemoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemoryTypeMemory">
+          <End Role="MemoryTypes" Type="LeconModel.Store.MemoryTypes" Multiplicity="1" />
+          <End Role="Memorys" Type="LeconModel.Store.Memorys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemoryTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Memorys">
+              <PropertyRef Name="MemoryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemoryTypeMotherboard">
+          <End Role="MemoryTypes" Type="LeconModel.Store.MemoryTypes" Multiplicity="1" />
+          <End Role="Motherboards" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemoryTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Motherboards">
+              <PropertyRef Name="MemoryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MotherboardAssembly">
+          <End Role="Motherboards" Type="LeconModel.Store.Motherboards" Multiplicity="1" />
+          <End Role="Assemblys" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motherboards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assemblys">
+              <PropertyRef Name="MotherBoardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PowerTypeHardDrive">
+          <End Role="PowerTypes" Type="LeconModel.Store.PowerTypes" Multiplicity="1" />
+          <End Role="HardDrives" Type="LeconModel.Store.HardDrives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PowerTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HardDrives">
+              <PropertyRef Name="PowerTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PowerTypeMotherboard">
+          <End Role="PowerTypes" Type="LeconModel.Store.PowerTypes" Multiplicity="1" />
+          <End Role="Motherboards" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PowerTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Motherboards">
+              <PropertyRef Name="PowerTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PowerTypePSU">
+          <End Role="PowerTypes" Type="LeconModel.Store.PowerTypes" Multiplicity="1" />
+          <End Role="PSUs" Type="LeconModel.Store.PSUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PowerTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PSUs">
+              <PropertyRef Name="PowerTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PSUAssembly">
+          <End Role="PSUs" Type="LeconModel.Store.PSUs" Multiplicity="1" />
+          <End Role="Assemblys" Type="LeconModel.Store.Assemblys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PSUs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assemblys">
+              <PropertyRef Name="PSUId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocketCPU">
+          <End Role="Sockets" Type="LeconModel.Store.Sockets" Multiplicity="1" />
+          <End Role="CPUs" Type="LeconModel.Store.CPUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sockets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CPUs">
+              <PropertyRef Name="SocketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocketMotherboard">
+          <End Role="Sockets" Type="LeconModel.Store.Sockets" Multiplicity="1" />
+          <End Role="Motherboards" Type="LeconModel.Store.Motherboards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sockets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Motherboards">
+              <PropertyRef Name="SocketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LeconModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -885,10 +868,6 @@
           <AssociationSet Name="GraphicChipGPU" Association="LeconModel.GraphicChipGPU">
             <End Role="GraphicChip" EntitySet="GraphicChips" />
             <End Role="GPU" EntitySet="GPUs" />
-          </AssociationSet>
-          <AssociationSet Name="PowerTypeCooler" Association="LeconModel.PowerTypeCooler">
-            <End Role="PowerType" EntitySet="PowerTypes" />
-            <End Role="Cooler" EntitySet="Coolers" />
           </AssociationSet>
           <AssociationSet Name="CoolerGPU" Association="LeconModel.CoolerGPU">
             <End Role="Cooler" EntitySet="Coolers" />
@@ -1118,9 +1097,7 @@
           <NavigationProperty Name="Assembly" Relationship="LeconModel.CoolerAssembly" FromRole="Cooler" ToRole="Assembly" />
           <NavigationProperty Name="Device" Relationship="LeconModel.DeviceCooler" FromRole="Cooler" ToRole="Device" />
           <Property Type="Int16" Name="Size" Nullable="false" />
-          <Property Type="Int32" Name="PowerTypeId" Nullable="false" />
           <NavigationProperty Name="Bodys" Relationship="LeconModel.CoolerBody" FromRole="Cooler" ToRole="Body" />
-          <NavigationProperty Name="PowerType" Relationship="LeconModel.PowerTypeCooler" FromRole="Cooler" ToRole="PowerType" />
           <NavigationProperty Name="GPUs" Relationship="LeconModel.CoolerGPU" FromRole="Cooler" ToRole="GPU" />
           <NavigationProperty Name="DeviceType" Relationship="LeconModel.DeviceTypeCooler" FromRole="Cooler" ToRole="DeviceType" />
           <Property Type="Int32" Name="DeviceTypeId" Nullable="false" />
@@ -1372,7 +1349,6 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Coolers" Relationship="LeconModel.PowerTypeCooler" FromRole="PowerType" ToRole="Cooler" />
           <NavigationProperty Name="HardDrives" Relationship="LeconModel.PowerTypeHardDrive" FromRole="PowerType" ToRole="HardDrive" />
           <NavigationProperty Name="PSUs" Relationship="LeconModel.PowerTypePSU" FromRole="PowerType" ToRole="PSU" />
           <NavigationProperty Name="Motherboards" Relationship="LeconModel.PowerTypeMotherboard" FromRole="PowerType" ToRole="Motherboard" />
@@ -1506,18 +1482,6 @@
             </Principal>
             <Dependent Role="GPU">
               <PropertyRef Name="GraphicChipId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PowerTypeCooler">
-          <End Type="LeconModel.PowerType" Role="PowerType" Multiplicity="1" />
-          <End Type="LeconModel.Cooler" Role="Cooler" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PowerType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Cooler">
-              <PropertyRef Name="PowerTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1712,7 +1676,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Rotation" ColumnName="Rotation" />
           <ScalarProperty Name="Size" ColumnName="Size" />
-          <ScalarProperty Name="PowerTypeId" ColumnName="PowerTypeId" />
           <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
           <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
         </MappingFragment>
