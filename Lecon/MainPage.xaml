@@ -69,6 +69,13 @@
 						<Rectangle Style="{StaticResource DividerStyle}" />
 
 						<HyperlinkButton Style="{StaticResource LinkStyle}"
+										 NavigateUri="/BigData/MotherboardPage"
+										 TargetName="ContentFrame"
+										 Content="Motherboards" />
+
+						<Rectangle Style="{StaticResource DividerStyle}" />
+
+						<HyperlinkButton Style="{StaticResource LinkStyle}"
 										 NavigateUri="/BigData/GPUPage"
 										 TargetName="ContentFrame"
 										 Content="GPUs" />
@@ -79,6 +86,13 @@
 										 NavigateUri="/BigData/CoolerPage"
 										 TargetName="ContentFrame"
 										 Content="Coolers" />
+
+						<Rectangle Style="{StaticResource DividerStyle}" />
+
+						<HyperlinkButton Style="{StaticResource LinkStyle}"
+										 NavigateUri="/BigData/MemoryPage"
+										 TargetName="ContentFrame"
+										 Content="Memories" />
 
 						<Rectangle Style="{StaticResource DividerStyle}" />
 

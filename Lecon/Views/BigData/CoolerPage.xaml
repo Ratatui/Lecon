@@ -11,7 +11,7 @@
 				 mc:Ignorable="d"
 				 d:DesignWidth="640"
 				 d:DesignHeight="480"
-				 Title="CPUs">
+				 Title="Coolers">
 	<navigation:Page.Resources>
 		<viewModels:Cooler_ViewModel x:Key="ViewModel" />
 	</navigation:Page.Resources>

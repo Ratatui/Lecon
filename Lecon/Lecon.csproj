@@ -105,6 +105,8 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\LoginInfo.cs" />
     <Compile Include="ViewModels\Cooler_ViewModel.cs" />
+    <Compile Include="ViewModels\Memory_ViewModel.cs" />
+    <Compile Include="ViewModels\Motherboard_ViewModel.cs" />
     <Compile Include="ViewModels\GPU_ViewModel.cs" />
     <Compile Include="ViewModels\CPU_ViewModel.cs" />
     <Compile Include="ViewModels\UICommand.cs" />
@@ -127,6 +129,12 @@
     </Compile>
     <Compile Include="Views\BigData\CoolerPage.xaml.cs">
       <DependentUpon>CoolerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BigData\MemoryPage.xaml.cs">
+      <DependentUpon>MemoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BigData\MotherboardPage.xaml.cs">
+      <DependentUpon>MotherboardPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BigData\GPUPage.xaml.cs">
       <DependentUpon>GPUPage.xaml</DependentUpon>
@@ -209,6 +217,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BigData\CoolerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BigData\MemoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BigData\MotherboardPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
